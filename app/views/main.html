@@ -1,0 +1,32 @@
+<div class="hero-unit">
+  <h1>Acceptance Testing</h1>
+</div>
+
+<form ng-submit="runTests()">
+  <input type="url" class="span6" ng-model="siteUrl" placeholder="Enter a valid URL" required pattern="https?://.+" />
+  <input class="btn btn-large btn-primary" type="submit" value="Check it!" />
+</form>
+
+<p>{{finished()}} of {{tests.length}} tests done</p>
+<p>{{correct()}} of {{tests.length}} tests are corrects</p>
+
+<div id="tests" class="">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Test</th>
+        <th>Description</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="test in tests" class="{{test.status}}">
+        <td>{{$index + 1}}</td>
+        <td>{{test.name}}</td>
+        <td>{{test.description}}</td>
+        <td>{{test.status}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
