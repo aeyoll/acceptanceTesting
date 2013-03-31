@@ -4,13 +4,12 @@ angular.module('acceptanceTestingApp')
   .controller('MainCtrl', function ($scope, $http) {
     $scope.webserviceUrl = 'http://localhost:8888/acceptanceTestingWebservice/';
 
-
-    $http.get($scope.webserviceUrl+'tests').success(function(data) {
+    $http.get($scope.webserviceUrl + 'tests').success(function (data) {
       $scope.tests = data;
     });
 
 
-    $scope.runTests = function() {
+    $scope.runTests = function () {
       // Remove http
       var url = $scope.siteUrl.replace('http://', '');
       // Remove trailing slash
@@ -18,14 +17,14 @@ angular.module('acceptanceTestingApp')
         url = url.substr(0, url.length - 1);
       }
 
-      angular.forEach($scope.tests, function(test) {
+      angular.forEach($scope.tests, function (test) {
         test.message = 'ongoing…';
 
         var request =  $http.get(
-          $scope.webserviceUrl+test.route+url
+          $scope.webserviceUrl + test.route + url
         );
 
-        request.then(function(status) {
+        request.then(function (status) {
           if (status.data === '1') {
             test.status = 'success';
             test.message = test.successMessage;
@@ -40,18 +39,18 @@ angular.module('acceptanceTestingApp')
     };
 
 
-    $scope.correct = function() {
+    $scope.correct = function () {
       var count = 0;
-      angular.forEach($scope.tests, function(test) {
+      angular.forEach($scope.tests, function (test) {
         count += test.status === 'success' ? 1 : 0;
       });
       return count;
     };
 
 
-    $scope.finished = function() {
+    $scope.finished = function () {
       var count = 0;
-      angular.forEach($scope.tests, function(test) {
+      angular.forEach($scope.tests, function (test) {
         count += test.done ? 1 : 0;
       });
       return count;

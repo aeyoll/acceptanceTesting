@@ -1,7 +1,9 @@
 {
   "name": "acceptance-testing",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "gruntacular": "~0.3.0"
+  },
   "devDependencies": {
     "grunt": "0.4.0rc7",
     "grunt-contrib-copy": "0.4.0rc7",
