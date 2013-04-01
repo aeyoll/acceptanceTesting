@@ -4,9 +4,11 @@ angular.module('acceptanceTestingApp')
   .controller('MainCtrl', function ($scope, $http) {
     $scope.webserviceUrl = 'http://localhost:8888/acceptanceTestingWebservice/';
 
-    $http.get($scope.webserviceUrl + 'tests').success(function (data) {
-      $scope.tests = data;
-    });
+    $scope.loadTests = function () {
+      $http.get($scope.webserviceUrl + 'tests').success(function (data) {
+        $scope.tests = data;
+      });
+    };
 
 
     $scope.runTests = function () {

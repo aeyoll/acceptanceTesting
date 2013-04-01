@@ -10,7 +10,7 @@
 <p>{{finished()}} of {{tests.length}} tests done</p>
 <p>{{correct()}} of {{tests.length}} tests are corrects</p>
 
-<div id="tests" class="">
+<div id="tests" ng-init="loadTests()">
   <table class="table">
     <thead>
       <tr>
