@@ -22,9 +22,10 @@ files = [
   './test/lib/chai-should.js',
   './test/lib/chai-expect.js',
   './test/lib/angular/angular-mocks.js',
+  './test/lib/ngMidwayTester.js',
 
   // Test-Specs
-  'test/unit/**/*.js'
+  'test/midway/**/*.js'
 ];
 
 // list of files to exclude
@@ -35,10 +36,10 @@ exclude = [];
 reporters = ['progress'];
 
 // web server port
-port = 8080;
+port = 8082;
 
 // cli runner port
-runnerPort = 9100;
+runnerPort = 9102;
 
 // enable / disable colors in the output (reporters and logs)
 colors = true;
